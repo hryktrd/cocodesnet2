@@ -1,0 +1,47 @@
+/ = form_for @cast do |f|
+= form_for [@shop_info, @shop_info.casts.build] do |f|
+  - if @cast.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@cast.errors.count, "error")} prohibited this cast from being saved:"
+      %ul
+        - @cast.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :shop_info
+    = f.text_field :shop_info
+  .field
+    = f.label :play_kind
+    = f.text_field :play_kind
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :age
+    = f.number_field :age
+  .field
+    = f.label :tall
+    = f.number_field :tall
+  .field
+    = f.label :bust
+    = f.number_field :bust
+  .field
+    = f.label :cup
+    = f.text_field :cup
+  .field
+    = f.label :waist
+    = f.number_field :waist
+  .field
+    = f.label :hip
+    = f.number_field :hip
+  .field
+    = f.label :photo
+    = f.text_field :photo
+  .field
+    = f.label :free_after
+    = f.datetime_select :free_after
+  .field
+    = f.label :price
+    = f.text_field :price
+  .actions
+    = f.submit 'Save'

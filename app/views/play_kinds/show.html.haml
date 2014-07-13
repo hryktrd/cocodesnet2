@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Kind:
+  = @play_kind.kind
+
+= link_to 'Edit', edit_play_kind_path(@play_kind)
+\|
+= link_to 'Back', play_kinds_path

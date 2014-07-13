@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  resources :casts
+
+  resources :play_kinds
+
   resources :shop_infos
 
   resources :shop_categories
+
+  get "/shop_photo/:id" => "shop_infos#shop_photo", :as => :shop_photo
+
+  resources :shop_infos do
+    resources :casts
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

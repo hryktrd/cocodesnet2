@@ -1,5 +1,6 @@
 class ShopInfo < ActiveRecord::Base
   belongs_to :shop_category
+  has_many :casts
   validate :file_invalid?
 
   #写真アップロード用

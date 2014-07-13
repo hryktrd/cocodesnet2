@@ -1,0 +1,19 @@
+%h1 Listing play_kinds
+
+%table
+  %tr
+    %th Kind
+    %th
+    %th
+    %th
+
+  - @play_kinds.each do |play_kind|
+    %tr
+      %td= play_kind.kind
+      %td= link_to 'Show', play_kind
+      %td= link_to 'Edit', edit_play_kind_path(play_kind)
+      %td= link_to 'Destroy', play_kind, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Play kind', new_play_kind_path

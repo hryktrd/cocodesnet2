@@ -16,14 +16,22 @@
   %b Lng:
   = @shop_info.lng
 %p
-  %b Photo:
-  = @shop_info.photo
-%p
   %b Tel:
   = @shop_info.tel
 %p
   %b Shop category:
   = @shop_category.category
+%p
+  %b Photo:
+  = image_tag shop_photo_path(@shop_info.id)
+
+%ul
+  - @shop_info.casts.each do |cast|
+    %li
+      = cast.name
+  / %li
+  /   = form_for [@shop_info, @project.casts.build] do |f|
+= link_to 'キャスト一覧', shop_info_casts_path(@shop_info)
 
 = link_to 'Edit', edit_shop_info_path(@shop_info)
 \|

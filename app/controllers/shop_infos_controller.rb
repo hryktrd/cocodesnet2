@@ -1,6 +1,5 @@
 class ShopInfosController < ApplicationController
-  before_action :set_shop_info, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_shop_info, only: [:show, :edit, :update, :destroy, :shop_photo]
   # GET /shop_infos
   # GET /shop_infos.json
   def index
@@ -10,6 +9,11 @@ class ShopInfosController < ApplicationController
   # GET /shop_infos/1
   # GET /shop_infos/1.json
   def show
+  end
+
+  # GET /shop_photo
+  def shop_photo
+    send_data @shop_info.photo, type: @shop_info.phototype, disposition: :inline
   end
 
   # GET /shop_infos/new
@@ -67,7 +71,6 @@ class ShopInfosController < ApplicationController
       @shop_info = ShopInfo.find(params[:id])
       @shop_category = ShopCategory.find(@shop_info.shop_category_id)
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_info_params
       params.require(:shop_info).permit(:name, :address, :url, :lat, :lng, :upfile, :tel, :shop_category_id)

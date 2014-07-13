@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b Shop info:
+  = @cast.shop_info
+%p
+  %b Play kind:
+  = @cast.play_kind
+%p
+  %b Name:
+  = @cast.name
+%p
+  %b Age:
+  = @cast.age
+%p
+  %b Tall:
+  = @cast.tall
+%p
+  %b Bust:
+  = @cast.bust
+%p
+  %b Cup:
+  = @cast.cup
+%p
+  %b Waist:
+  = @cast.waist
+%p
+  %b Hip:
+  = @cast.hip
+%p
+  %b Photo:
+  = @cast.photo
+%p
+  %b Free after:
+  = @cast.free_after
+%p
+  %b Price:
+  = @cast.price
+
+= link_to 'Edit', edit_cast_path(@cast)
+\|
+= link_to 'Back', shop_info_casts_path

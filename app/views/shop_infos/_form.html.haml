@@ -22,14 +22,14 @@
     = f.label :lng
     = f.text_field :lng
   .field
-    = f.label :upfile
-    = f.file_field :upfile
-    / = f.text_field :photo
-  .field
     = f.label :tel
     = f.text_field :tel
   .field
     = f.label :shop_category_id
     = f.collection_select :shop_category_id, ShopCategory.all, :id, :category
-  .actions
+  .field
+    = f.label :upfile
+    = f.file_field :upfile
+    / = f.text_field :photo.actions
+
     = f.submit 'Save'
