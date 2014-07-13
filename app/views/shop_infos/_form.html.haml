@@ -1,0 +1,35 @@
+= form_for @shop_info, :html => {:multipart => true} do |f|
+  - if @shop_info.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@shop_info.errors.count, "error")} prohibited this shop_info from being saved:"
+      %ul
+        - @shop_info.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :lat
+    = f.text_field :lat
+  .field
+    = f.label :lng
+    = f.text_field :lng
+  .field
+    = f.label :upfile
+    = f.file_field :upfile
+    / = f.text_field :photo
+  .field
+    = f.label :tel
+    = f.text_field :tel
+  .field
+    = f.label :shop_category_id
+    = f.collection_select :shop_category_id, ShopCategory.all, :id, :category
+  .actions
+    = f.submit 'Save'

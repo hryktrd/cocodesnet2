@@ -1,0 +1,33 @@
+%h1 Listing shop_infos
+
+%table
+  %tr
+    %th Name
+    %th Address
+    %th Url
+    %th Lat
+    %th Lng
+    %th Photo
+    %th Tel
+    %th Shop category
+    %th
+    %th
+    %th
+
+  - @shop_infos.each do |shop_info|
+    %tr
+      %td= shop_info.name
+      %td= shop_info.address
+      %td= shop_info.url
+      %td= shop_info.lat
+      %td= shop_info.lng
+      %td= shop_info.photo
+      %td= shop_info.tel
+      %td= shop_info.shop_category
+      %td= link_to 'Show', shop_info
+      %td= link_to 'Edit', edit_shop_info_path(shop_info)
+      %td= link_to 'Destroy', shop_info, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Shop info', new_shop_info_path
