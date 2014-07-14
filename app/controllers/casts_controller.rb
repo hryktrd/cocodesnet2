@@ -1,11 +1,11 @@
 class CastsController < ApplicationController
   before_action :set_cast, only: [:show, :edit, :update, :destroy]
+  before_filter :load_shop_info
 
   # GET /casts
   # GET /casts.json
   def index
-    # @casts = Cast.all
-    @casts = ShopInfo.find(params[:shop_info_id]).casts
+    @casts = Cast.all
   end
 
   # GET /casts/1
@@ -15,7 +15,6 @@ class CastsController < ApplicationController
 
   # GET /casts/new
   def new
-    @shop_info = ShopInfo.find(params[:shop_info_id])
     @cast = Cast.new
   end
 
@@ -26,13 +25,13 @@ class CastsController < ApplicationController
   # POST /casts
   # POST /casts.json
   def create
-    @shop_info = ShopInfo.find(params[:shop_info_id])
     @cast = @shop_info.casts.create(cast_params)
     # @cast = Cast.new(cast_params)
 
     respond_to do |format|
       if @cast.save
-        format.html { redirect_to @cast, notice: 'Cast was successfully created.' }
+        # format.html { redirect_to @cast, notice: 'Cast was successfully created.' }
+        format.html { redirect_to shop_info_casts_path, notice: 'Cast was successfully created.' }
         format.json { render :show, status: :created, location: @cast }
       else
         format.html { render :new }
@@ -71,9 +70,11 @@ class CastsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cast
       @cast = Cast.find(params[:id])
-      @shop_info = ShopInfo.find(params[:shop_info_id])
     end
 
+    def load_shop_info
+      @shop_info = ShopInfo.find(params[:shop_info_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cast_params
       params.require(:cast).permit(:play_kind_id, :name, :age, :tall, :bust, :cup, :waist, :hip, :photo, :free_after, :price)

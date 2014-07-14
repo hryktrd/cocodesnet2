@@ -39,3 +39,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'carrierwave'
 gem 'haml-rails'
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
