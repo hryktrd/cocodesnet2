@@ -1,6 +1,6 @@
 class Cast < ActiveRecord::Base
   belongs_to :shop_info
-  has_one :play_kind
+  belongs_to :play_kind
   validate :file_invalid?
 
   #写真アップロード用

@@ -2,10 +2,10 @@
 
 %p
   %b Shop info:
-  = @cast.shop_info
+  = @cast.shop_info.name
 %p
   %b Play kind:
-  = @cast.play_kind_id
+  = @cast.play_kind.kind
 %p
   %b Name:
   = @cast.name
@@ -29,7 +29,7 @@
   = @cast.hip
 %p
   %b Photo:
-  = @cast.photo
+  =image_tag cast_photo_path(@cast.id)
 %p
   %b Free after:
   = @cast.free_after
