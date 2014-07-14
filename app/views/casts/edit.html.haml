@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @cast
+= link_to 'Show', shop_info_cast_path(@shop_info.id, @cast.id)
 \|
 = link_to 'Back', shop_info_casts_path

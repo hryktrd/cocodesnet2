@@ -5,7 +5,7 @@
   = @cast.shop_info
 %p
   %b Play kind:
-  = @cast.play_kind
+  = @cast.play_kind_id
 %p
   %b Name:
   = @cast.name
@@ -37,6 +37,6 @@
   %b Price:
   = @cast.price
 
-= link_to 'Edit', edit_cast_path(@cast)
+= link_to 'Edit', edit_shop_info_cast_path(@shop_info.id, @cast.id)
 \|
 = link_to 'Back', shop_info_casts_path

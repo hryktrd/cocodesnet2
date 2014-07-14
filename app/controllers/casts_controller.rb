@@ -1,6 +1,6 @@
 class CastsController < ApplicationController
   before_action :set_cast, only: [:show, :edit, :update, :destroy, :cast_photo]
-  before_action :load_shop_info, only: [:index, :create, :new]
+  before_action :load_shop_info, only: [:index, :create, :new, :edit, :show]
 
   # GET /casts
   # GET /casts.json
@@ -64,7 +64,7 @@ class CastsController < ApplicationController
   def destroy
     @cast.destroy
     respond_to do |format|
-      format.html { redirect_to casts_url, notice: 'Cast was successfully destroyed.' }
+      format.html { redirect_to shop_info_casts_path, notice: 'Cast was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
