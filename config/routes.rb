@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :casts
+  # resources :casts
 
   resources :play_kinds
 
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :shop_categories
 
   get "/shop_photo/:id" => "shop_infos#shop_photo", :as => :shop_photo
+  get "/cast_photo/:id" => "casts#cast_photo", :as => :cast_photo
 
   resources :shop_infos do
     resources :casts

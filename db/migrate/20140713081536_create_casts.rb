@@ -10,7 +10,8 @@ class CreateCasts < ActiveRecord::Migration
       t.string :cup
       t.integer :waist
       t.integer :hip
-      t.binary :photo
+      t.binary :photo, limit: 3.megabyte
+      t.string :phototype
       t.datetime :free_after
       t.string :price
 

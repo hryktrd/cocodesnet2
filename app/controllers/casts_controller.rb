@@ -1,6 +1,6 @@
 class CastsController < ApplicationController
-  before_action :set_cast, only: [:show, :edit, :update, :destroy]
-  before_filter :load_shop_info
+  before_action :set_cast, only: [:show, :edit, :update, :destroy, :cast_photo]
+  before_action :load_shop_info, only: [:index, :create, :new]
 
   # GET /casts
   # GET /casts.json
@@ -12,7 +12,10 @@ class CastsController < ApplicationController
   # GET /casts/1.json
   def show
   end
-
+  # GET /shop_photo
+  def cast_photo
+    send_data @cast.photo, type: @cast.phototype, disposition: :inline
+  end
   # GET /casts/new
   def new
     @cast = Cast.new
@@ -77,6 +80,6 @@ class CastsController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cast_params
-      params.require(:cast).permit(:play_kind_id, :name, :age, :tall, :bust, :cup, :waist, :hip, :photo, :free_after, :price)
+      params.require(:cast).permit(:play_kind_id, :name, :age, :tall, :bust, :cup, :waist, :hip, :upfile, :free_after, :price)
     end
 end
