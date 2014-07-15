@@ -1,5 +1,6 @@
 / = form_for @cast do |f|
-= form_for [@shop_info, @shop_info.casts.build], :html => {:multipart => true} do |f|
+/ = form_for [@shop_info, @shop_info.casts.build], :html => {:multipart => true} do |f|
+= form_for [@shop_info, @cast], :html => {:multipart => true} do |f|
   - if @cast.errors.any?
     #error_explanation
       %h2= "#{pluralize(@cast.errors.count, "error")} prohibited this cast from being saved:"

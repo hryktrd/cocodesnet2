@@ -50,7 +50,7 @@ class CastsController < ApplicationController
   def update
     respond_to do |format|
       if @cast.update(cast_params)
-        format.html { redirect_to @cast, notice: 'Cast was successfully updated.' }
+        format.html { redirect_to shop_info_casts_path, notice: 'Cast was successfully updated.' }
         format.json { render :show, status: :ok, location: @cast }
       else
         format.html { render :edit }
