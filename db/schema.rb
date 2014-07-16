@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20140713081536) do
     t.binary   "photo",        limit: 16777215
     t.string   "phototype"
     t.datetime "free_after"
-    t.string   "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140713081536) do
     t.binary   "photo",            limit: 16777215
     t.string   "phototype"
     t.string   "tel"
+    t.integer  "min_price"
+    t.integer  "max_price"
     t.integer  "shop_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"

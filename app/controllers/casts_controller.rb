@@ -80,6 +80,6 @@ class CastsController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cast_params
-      params.require(:cast).permit(:play_kind_id, :name, :age, :tall, :bust, :cup, :waist, :hip, :upfile, :free_after, :price)
+      params.require(:cast).permit(:play_kind_id, :name, :age, :tall, :bust, :cup, :waist, :hip, :upfile, :free_after)
     end
 end

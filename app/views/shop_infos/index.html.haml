@@ -9,6 +9,8 @@
     %th Lng
     %th Photo
     %th Tel
+    %th Min Price
+    %th Max Price
     %th Shop category
     %th
     %th
@@ -23,6 +25,8 @@
       %td= shop_info.lng
       %td= link_to '店舗写真', shop_photo_path(shop_info.id)
       %td= shop_info.tel
+      %td= shop_info.min_price
+      %td= shop_info.max_price
       %td= ShopCategory.find(shop_info.shop_category_id).category
       %td= link_to 'Show', shop_info
       %td= link_to 'Edit', edit_shop_info_path(shop_info)

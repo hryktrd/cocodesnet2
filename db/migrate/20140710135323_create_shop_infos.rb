@@ -9,6 +9,8 @@ class CreateShopInfos < ActiveRecord::Migration
       t.binary :photo, limit: 3.megabyte
       t.string :phototype
       t.string :tel
+      t.integer :min_price
+      t.integer :max_price
       t.references :shop_category, index: true
 
       t.timestamps

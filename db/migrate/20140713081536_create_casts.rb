@@ -13,7 +13,6 @@ class CreateCasts < ActiveRecord::Migration
       t.binary :photo, limit: 3.megabyte
       t.string :phototype
       t.datetime :free_after
-      t.string :price
 
       t.timestamps
     end
