@@ -17,9 +17,9 @@
     %th
     %th
 
-  - @casts.each do |cast|
+  - @shop_info.casts.each do |cast|
     %tr
-      %td= cast.shop_info
+      %td= cast.shop_info.name
       / %td= PlayKind.find(cast.play_kind_id).kind
       %td= cast.name
       %td= cast.age

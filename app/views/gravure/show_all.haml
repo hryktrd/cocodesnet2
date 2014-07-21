@@ -1,0 +1,6 @@
+%p#notice= notice
+
+%ul
+  - @casts.each do |cast|
+    %li
+      = image_tag cast_photo_path(cast.id), :size => "120x120"

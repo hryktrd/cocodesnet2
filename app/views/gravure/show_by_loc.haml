@@ -1,0 +1,8 @@
+%p#notice= notice
+
+%ul
+  - @shop_infos.each do |shop_info|
+    - shop_info.casts.each do |cast|
+      %li
+        = image_tag cast_photo_path(cast.id), :size => "120x120"
+

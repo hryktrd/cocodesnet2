@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :casts
   end
 
+  get "/gravure/:lat/:lng" => "gravure#show_by_loc"
+  get "/gravure/" => "gravure#show_all"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
