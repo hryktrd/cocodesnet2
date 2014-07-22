@@ -20,7 +20,7 @@
   - @shop_info.casts.each do |cast|
     %tr
       %td= cast.shop_info.name
-      / %td= PlayKind.find(cast.play_kind_id).kind
+      %td= PlayKind.find(cast.play_kind_id).kind
       %td= cast.name
       %td= cast.age
       %td= cast.tall
@@ -28,7 +28,7 @@
       %td= cast.cup
       %td= cast.waist
       %td= cast.hip
-      %td= link_to '店舗写真', cast_photo_path(cast.id)
+      %td= link_to 'キャスト写真', cast_photo_path(cast.id)
       %td= cast.free_after
       %td= link_to 'Show', shop_info_cast_path(@shop_info.id, cast.id)
       %td= link_to 'Edit', edit_shop_info_cast_path(@shop_info.id, cast.id)

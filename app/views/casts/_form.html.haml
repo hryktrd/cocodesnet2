@@ -8,9 +8,9 @@
         - @cast.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :shop_info
-    = f.text_field :shop_info
+  / .field
+  /   = f.label :shop_info
+  /   = f.text_field :shop_info
   .field
     = f.label :play_kind
     = f.collection_select :play_kind_id, PlayKind.all, :id, :kind
