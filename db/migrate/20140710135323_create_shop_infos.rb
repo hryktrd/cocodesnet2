@@ -4,8 +4,8 @@ class CreateShopInfos < ActiveRecord::Migration
       t.string :name
       t.string :address
       t.string :url
-      t.decimal :lat
-      t.decimal :lng
+      t.decimal :lat, precision: 11, scale: 8
+      t.decimal :lng, precision: 11, scale: 8
       t.binary :photo, limit: 3.megabyte
       t.string :phototype
       t.string :tel

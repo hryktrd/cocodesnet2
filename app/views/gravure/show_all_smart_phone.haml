@@ -1,0 +1,9 @@
+%p#notice= notice
+#main_page{:"data-role" => 'page'}
+  #main_page{:"data-role" => 'header'}
+    %h1
+      ここですねっと
+    - @casts.each do |cast|
+      %p
+        = image_tag cast_photo_path(cast.id), :width => "100%"
+  #main_page{:"data-role" => 'footer'}

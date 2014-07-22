@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cocodesnet</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css' %>
+  <%= javascript_include_tag 'http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js' %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

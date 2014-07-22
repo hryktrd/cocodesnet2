@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20140713081536) do
     t.string   "name"
     t.string   "address"
     t.string   "url"
-    t.decimal  "lat",                               precision: 10, scale: 0
-    t.decimal  "lng",                               precision: 10, scale: 0
+    t.decimal  "lat",                               precision: 11, scale: 8
+    t.decimal  "lng",                               precision: 11, scale: 8
     t.binary   "photo",            limit: 16777215
     t.string   "phototype"
     t.string   "tel"

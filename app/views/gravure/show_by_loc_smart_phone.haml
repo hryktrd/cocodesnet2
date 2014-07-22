@@ -1,0 +1,15 @@
+%p#notice= notice
+#main_page{:"data-role" => 'page'}
+  #main_page{:"data-role" => 'header'}
+    %h1
+      ここですねっと
+
+  - @shop_infos.each do |shop_info|
+    - shop_info.casts.each do |cast|
+      %p
+        = image_tag cast_photo_path(cast.id), :width => "100%"
+        = link_to "電話する", "tel:" + shop_info.tel
+        = link_to "道案内", "http://maps.google.co.jp/maps?daddr=" + shop_info.lat.to_s + "," + shop_info.lng.to_s + "&hl=ja&z=13"
+  #main_page{:"data-role" => 'footer'}
+
+
