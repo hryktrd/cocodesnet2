@@ -42,3 +42,4 @@ gem 'carrierwave'
 gem 'haml-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'jpmobile'
+gem 'jquery-turbolinks'
