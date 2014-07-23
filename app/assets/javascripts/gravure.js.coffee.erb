@@ -1,0 +1,10 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+    navigator.geolocation.getCurrentPosition (position) ->
+        $.get <%= gravure_path %> + position.coords.latitude + "/" + position.coords.longitude + ".json", null, (ShopCastData) ->
+                alert "test"
+                for obj in ShopCastData
+                    alert ("#{obj["name"]} #{obj["casts"][0]["name"]}")
+

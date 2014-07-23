@@ -10,6 +10,16 @@ class GravureController < ApplicationController
     min_lng = params[:lng].to_f - 100
     @shop_infos = ShopInfo.where('lat <= ? AND lat >= ? AND lng <= ? AND lng >= ?',
       max_lat, min_lat, max_lng, min_lng)
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: @shop_infos.to_json(:only => ['name', 'lat', 'lng', 'tel'],
+          :include => {
+            :casts => {:only => ['id', 'name']}
+            })
+
+      }
+    end
   end
   private
     def gravure_params
