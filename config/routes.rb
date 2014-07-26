@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   end
 
   get "/gravure/:lat/:lng" => "gravure#show_by_loc"
-  get "/gravure/" => "gravure#show_all"
+  post "/gravure/get_json/:lat/:lng" => "gravure#get_json"
+  get "/gravure/get_json/:lat/:lng" => "gravure#get_json"
+  get "/gravure/get_json" => "gravure#get_json"
+  get "/gravure/" => "gravure#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

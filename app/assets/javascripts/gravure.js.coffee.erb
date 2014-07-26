@@ -1,10 +1,29 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-$(document).ready ->
-    navigator.geolocation.getCurrentPosition (position) ->
-        $.get <%= gravure_path %> + position.coords.latitude + "/" + position.coords.longitude + ".json", null, (ShopCastData) ->
-                alert "test"
-                for obj in ShopCastData
-                    alert ("#{obj["name"]} #{obj["casts"][0]["name"]}")
+init = ->
+	navigator.geolocation.getCurrentPosition (position, onError) ->
+		postData(position.coords.latitude, position.coords.longitude)
 
+	postData = (lat, lng) ->
+		$.ajax({
+			url: "/gravure/get_json",
+			data: 'lat=' + lat + '&lng=' + lng,
+			success: (shopCastData, status) -> showCasts shopCastData
+			error: (xhr,  status, error) -> alert status
+			})
+
+		showCasts = (shopCastData) ->
+			$('#geoCasts').empty()
+			for obj in shopCastData
+				for castObj in obj["casts"]
+					imgUri = "/cast_photo/" + castObj["id"].toString()
+					$('#geoCasts').append(
+						$('<li></li>').append(
+							$('<img>').attr('src', imgUri, "width":"100%")
+							)
+						)
+
+
+$(document).ready(init)
+# $(document).on('page:change', init)
