@@ -74,7 +74,7 @@ class CastsController < ApplicationController
     wait_time = params[:wait_time].to_i
     @cast.free_after = wait_time.minutes.from_now
     @cast.save
-    render text: @cast.free_after.to_s
+    render text: @cast.free_after
   end
 
   private
