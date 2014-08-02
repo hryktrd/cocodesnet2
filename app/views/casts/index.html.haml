@@ -13,6 +13,7 @@
     %th Hip
     %th Photo
     %th Free after
+    %th Wait Time
     %th
     %th
     %th
@@ -29,7 +30,13 @@
       %td= cast.waist
       %td= cast.hip
       %td= link_to 'キャスト写真', cast_photo_path(cast.id)
-      %td= cast.free_after
+      %td{:id => cast.id, :class => 'free_after'}= cast.free_after
+      %td
+        %input{:type => "button", :class => "wait_0min", :value => "フリー" ,"data-cast_id" => cast.id}
+        %input{:type => "button", :class => "wait_15min", :value => "15分" ,"data-cast_id" => cast.id}
+        %input{:type => "button", :class => "wait_30min", :value => "30分" ,"data-cast_id" => cast.id}
+        %input{:type => "button", :class => "wait_45min", :value => "45分" ,"data-cast_id" => cast.id}
+        %input{:type => "button", :class => "wait_60min", :value => "1時間" ,"data-cast_id" => cast.id}
       %td= link_to 'Show', shop_info_cast_path(@shop_info.id, cast.id)
       %td= link_to 'Edit', edit_shop_info_cast_path(@shop_info.id, cast.id)
       %td= link_to 'Destroy', shop_info_cast_path(@shop_info.id, cast.id), :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -1,5 +1,5 @@
 class CastsController < ApplicationController
-  before_action :set_cast, only: [:show, :edit, :update, :destroy, :cast_photo]
+  before_action :set_cast, only: [:show, :edit, :update, :destroy, :cast_photo, :set_wait_time]
   before_action :load_shop_info, only: [:index, :create, :new, :edit, :show]
 
   # GET /casts
@@ -67,6 +67,14 @@ class CastsController < ApplicationController
       format.html { redirect_to shop_info_casts_path, notice: 'Cast was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def set_wait_time
+    # render nothing: true
+    wait_time = params[:wait_time].to_i
+    @cast.free_after = wait_time.minutes.from_now
+    @cast.save
+    render text: @cast.free_after.to_s
   end
 
   private

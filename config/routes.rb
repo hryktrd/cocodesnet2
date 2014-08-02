@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/gravure/get_json/:lat/:lng" => "gravure#get_json"
   get "/gravure/get_json" => "gravure#get_json"
   get "/gravure/" => "gravure#index"
+  get "/casts/:id/set_wait_time/:wait_time" => "casts#set_wait_time"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

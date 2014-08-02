@@ -31,13 +31,39 @@
   %b Photo:
   = image_tag shop_photo_path(@shop_info.id), :size => "120x120"
 
-%ul
+%table
+  %tr
+    %th Play kind
+    %th Name
+    %th Age
+    %th Tall
+    %th Bust
+    %th Cup
+    %th Waist
+    %th Hip
+    %th Photo
+    %th Free after
+    %th
+    %th
+    %th
   - @shop_info.casts.each do |cast|
-    %li
-      = cast.name
+    %tr
+      %td= cast.play_kind.kind
+      %td= cast.name
+      %td= cast.age
+      %td= cast.tall
+      %td= cast.bust
+      %td= cast.cup
+      %td= cast.waist
+      %td= cast.hip
+      %td= link_to '写真', cast_photo_path(cast.id)
+      %td= cast.free_after
+      %td= link_to '編集', edit_shop_info_cast_path(@shop_info, cast.id)
+      %td= link_to 'Destroy', shop_info_cast_path(@shop_info, cast.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
   / %li
   /   = form_for [@shop_info, @project.casts.build] do |f|
-= link_to 'キャスト一覧', shop_info_casts_path(@shop_info)
+/ = link_to 'キャスト一覧', shop_info_casts_path(@shop_info)
 
 = link_to 'Edit', edit_shop_info_path(@shop_info)
 \|
