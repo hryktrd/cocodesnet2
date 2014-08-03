@@ -9,20 +9,19 @@ init = ->
 		$.ajax({
 			url: "/gravure/get_json",
 			data: 'lat=' + lat + '&lng=' + lng,
-			success: (shopCastData, status) -> showCasts shopCastData
+			success: (CastData, status) -> showCasts CastData
 			error: (xhr,  status, error) -> alert status
 			})
 
-		showCasts = (shopCastData) ->
+		showCasts = (CastData) ->
 			$('#geoCasts').empty()
-			for obj in shopCastData
-				for castObj in obj["casts"]
-					imgUri = "/cast_photo/" + castObj["id"].toString()
-					$('#geoCasts').append(
-						$('<li></li>').append(
-							$('<img>').attr('src', imgUri, "width":"100%")
-							)
+			for obj in CastData
+				imgUri = "/cast_photo/" + obj["id"].toString()
+				$('#geoCasts').append(
+					$('<li></li>').append(
+						$('<img>').attr('src', imgUri, "width":"100%")
 						)
+					)
 
 
 $(document).ready(init)
